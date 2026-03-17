@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird - Web Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Flappy Bird</h1>
+        <p class="subtitle">Web Edition</p>
+        
+        <div class="canvas-wrapper">
+            <canvas id="gameCanvas" width="400" height="700"></canvas>
+            
+            <div id="uiLayer" class="ui-layer">
+                <!-- Main Menu -->
+                <div id="mainMenu" class="screen">
+                    <h2>FLAPPY BIRD</h2>
+                    <p class="blink">Press SPACE or TAP to Play</p>
+                    <button id="leadBtnMenu" class="btn">Leaderboard</button>
+                </div>
+
+                <!-- Game Over -->
+                <div id="gameOver" class="screen hidden">
+                    <div class="panel">
+                        <h2>GAME OVER</h2>
+                        <div class="score-display">
+                            <p>Score: <span id="finalScore">0</span></p>
+                            <p class="best-score">Best: <span id="bestScore">0</span></p>
+                        </div>
+                        <button id="retryBtn" class="btn primary">Play Again</button>
+                        <button id="leadBtnGO" class="btn">Leaderboard</button>
+                    </div>
+                </div>
+
+                <!-- Leaderboard -->
+                <div id="leaderboardView" class="screen hidden">
+                    <div class="panel">
+                        <h2>LEADERBOARD</h2>
+                        <ul id="leaderboardList">
+                            <!-- Scores injected via JS -->
+                        </ul>
+                        <button id="backBtn" class="btn">Back to Menu</button>
+                    </div>
+                </div>
+
+                <!-- In-Game Score -->
+                <div id="inGameUI" class="screen hidden">
+                    <div id="currentScore">0</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls-hint">
+            <p><strong>Controls:</strong> Spacebar or Click/Tap on the game area to jump.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+:root {
+    --bg-top: #87CEEB;
+    --bg-bottom: #4682B4;
+    --ground-color: #C2A36B;
+    --grass-color: #4CAF50;
+    --bird-yellow: #FFCC00;
+    --pipe-green: #4CAF50;
+    --pipe-border: #388E3C;
+    --text-white: #FFFFFF;
+    --panel-bg: rgba(44, 62, 80, 0.95);
+    --gold: #FFD700;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1a1a1a;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-white);
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3rem;
+    color: var(--gold);
+    text-shadow: 2px 2px 0px #000;
+    margin-bottom: -5px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.canvas-wrapper {
+    position: relative;
+    width: 400px;
+    height: 700px;
+    border: 4px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Let clicks pass through to canvas when needed */
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Typography styles */
+h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.blink {
+    font-size: 1.2rem;
+    font-weight: 700;
+    animation: blinker 1s linear infinite;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    margin-bottom: 30px;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+/* Buttons */
+.btn {
+    font-family: 'Fredoka One', cursive;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.2s;
+    margin-top: 15px;
+    box-shadow: 0 4px 0 #333;
+}
+
+.btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 #333;
+}
+
+.btn:hover { background-color: #666; }
+
+.btn.primary {
+    background-color: var(--grass-color);
+    box-shadow: 0 4px 0 var(--pipe-border);
+}
+.btn.primary:hover { background-color: #5cb860; }
+
+.btn.primary:active {
+    box-shadow: 0 0 0 var(--pipe-border);
+}
+
+
+/* Panels */
+.panel {
+    background: var(--panel-bg);
+    border: 3px solid var(--gold);
+    border-radius: 16px;
+    padding: 30px;
+    width: 80%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-display {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.score-display .best-score {
+    color: var(--gold);
+    margin-top: 5px;
+}
+
+/* Leaderboard */
+#leaderboardList {
+    width: 100%;
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+#leaderboardList li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#leaderboardList li span:first-child { color: #ccc; }
+#leaderboardList li:nth-child(1) { color: var(--gold); font-size: 1.4rem; }
+#leaderboardList li:nth-child(2) { color: #C0C0C0; }
+#leaderboardList li:nth-child(3) { color: #CD7F32; }
+
+/* In-game score */
+#inGameUI {
+    justify-content: flex-start;
+    padding-top: 50px;
+    pointer-events: none;
+}
+
+#currentScore {
+    font-family: 'Fredoka One', cursive;
+    font-size: 4rem;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.controls-hint {
+    color: #888;
+    font-size: 0.9rem;
+}
